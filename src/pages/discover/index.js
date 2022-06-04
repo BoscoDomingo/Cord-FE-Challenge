@@ -38,12 +38,16 @@ export default class Discover extends React.Component {
     // TODO: Preload and set the popular movies and movie genres when page loads - DONE
     componentDidMount() {
         this.setState({ isLoading: true });
-        fetcher.fetchPopularMovies().then(res => {
+        let resolvedPromises = Promise.all([fetcher.fetchPopularMovies(), fetcher.fetchMovieGenres()]);
+        resolvedPromises.then(([popularMovies, movieGenres]) => {
             this.setState({
-                results: res.results,
-                totalCount: res.total_results,
+                results: popularMovies.results,
+                totalCount: popularMovies.total_results,
+                genreOptions: movieGenres,
                 isLoading: false,
-            })
+            });
+        }).catch(error => {
+            console.error(error);
         });
     };
 
