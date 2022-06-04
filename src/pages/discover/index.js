@@ -8,60 +8,68 @@ import SearchFilters from "../../components/searchfilter";
 import MovieList from "../../components/movielist";
 
 export default class Discover extends React.Component {
-  constructor (props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      keyword: '',
-      year: 0,
-      results: [],
-      totalCount: 0,
-      genreOptions: [],
-      ratingOptions: [
-        { id: 7.5, name: 7.5 },
-        { id: 8, name: 8 },
-        { id: 8.5, name: 8.5 },
-        { id: 9, name: 9 },
-        { id: 9.5, name: 9.5 },
-        { id: 10, name: 10 }
-      ],
-      languageOptions: [
-        { id: 'GR', name: 'Greek' },
-        { id: 'EN', name: 'English' },
-        { id: 'RU', name: 'Russian' },
-        { id: 'PO', name: 'Polish' }
-      ]
+        this.state = {
+            keyword: '',
+            year: 0,
+            results: [],
+            totalCount: 0,
+            genreOptions: [],
+            ratingOptions: [
+                { id: 7.5, name: 7.5 },
+                { id: 8, name: 8 },
+                { id: 8.5, name: 8.5 },
+                { id: 9, name: 9 },
+                { id: 9.5, name: 9.5 },
+                { id: 10, name: 10 }
+            ],
+            languageOptions: [
+                { id: 'GR', name: 'Greek' },
+                { id: 'EN', name: 'English' },
+                { id: 'RU', name: 'Russian' },
+                { id: 'PO', name: 'Polish' }
+            ]
+        };
+    }
+
+    // TODO: Preload and set the popular movies and movie genres when page loads
+    componentDidMount() {
+        fetcher.fetchPopularMovies().then(res => {
+            this.setState({
+                results: res.results,
+                totalCount: res.total_results
+            })
+        });
     };
-  }
 
-  // TODO: Preload and set the popular movies and movie genres when page loads
+    // TODO: Update search results based on the keyword and year inputs
 
-  // TODO: Update search results based on the keyword and year inputs
+    render() {
+        const { genreOptions, languageOptions, ratingOptions, totalCount, results } = this.state;
 
-  render () {
-    const { genreOptions, languageOptions, ratingOptions, totalCount, results } = this.state;
-
-    return (
-      <DiscoverWrapper>
-        <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
-        <TotalCount>{totalCount} results</TotalCount>
-        <MovieFilters>
-          <SearchFilters 
-            genres={genreOptions} 
-            ratings={ratingOptions}  
-            languages={languageOptions}
-            searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
-          />
-        </MovieFilters>
-        <MovieResults>
-          <MovieList 
-            movies={results || []}
-            genres={genreOptions || []}
-          />
-        </MovieResults>
-      </DiscoverWrapper>
-    )
-  }
+        return (
+            <DiscoverWrapper>
+                <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
+                <TotalCount>{totalCount} results</TotalCount>
+                <MovieFilters>
+                    <SearchFilters
+                        genres={genreOptions}
+                        ratings={ratingOptions}
+                        languages={languageOptions}
+                        searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
+                    />
+                </MovieFilters>
+                <MovieResults>
+                    <MovieList
+                        movies={results || []}
+                        genres={genreOptions || []}
+                    />
+                </MovieResults>
+            </DiscoverWrapper>
+        )
+    }
 }
 
 const DiscoverWrapper = styled.main`
