@@ -14,7 +14,7 @@ export const fetchMovies = async (query, year) => {
         console.error("Query must be provided");
         return {};
     }
-    return await axios.get(`${BASE_URL}/search/movie?api_key=${API_KEY}${query ? `&query${query}` : ""}${year ? `&year=${year}` : ""}`)
+    return await axios.get(`${BASE_URL}/search/movie?api_key=${API_KEY}${query ? `&query=${query}` : ""}${year ? `&year=${year}` : ""}`)
         .then(res => res.data)
         .catch(err => console.error(err));
 }
