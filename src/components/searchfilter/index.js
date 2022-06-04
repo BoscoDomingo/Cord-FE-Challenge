@@ -9,28 +9,46 @@ import SearchIcon from "../../images/search-icon-yellow.png";
 import YearIcon from "../../images/year-icon.png";
 
 export default function SearchFilters({ genres, ratings, languages, onSearch }) {
-  return (
-    <FiltersWrapper>
-      <SearchFiltersCont className="search_inputs_cont" marginBottom>
-        <SearchBar
-          id="keyword_search_input" 
-          type="text"
-          icon={{ src: SearchIcon, alt: 'Magnifying glass' }} 
-          placeholder="Search for movies"
-        />
-        <SearchBar
-          id="year_search_input" 
-          type="number"
-          icon={{ src: YearIcon, alt: 'Calendar icon' }} 
-          placeholder="Year of release"
-        />
-      </SearchFiltersCont>
-      <SearchFiltersCont>
-        <CategoryTitle>Movies</CategoryTitle>
-        {/* TODO: Complete the "AccordionFilter" component and re-use it for all filter categories */}
-      </SearchFiltersCont>
-    </FiltersWrapper>
-  );
+    const [keyword, setKeyword] = React.useState('');
+    const [year, setYear] = React.useState(0);
+
+    const handleOnChange = ((value) => {
+        // Not the cleanest solution, but better than repeating code in each onChange
+        if (typeof value === 'string') {
+            setKeyword(value);
+        } else if (typeof value === 'number') {
+            setYear(value);
+        }
+        onSearch(keyword, year); //useEffect caused an infinite loop
+    });
+
+    return (
+        <FiltersWrapper>
+            <SearchFiltersCont className="search_inputs_cont" marginBottom>
+                <SearchBar
+                    id="keyword_search_input"
+                    type="text"
+                    icon={{ src: SearchIcon, alt: 'Magnifying glass' }}
+                    placeholder="Search for movies"
+                    onChange={handleOnChange}
+                />
+                <SearchBar
+                    id="year_search_input"
+                    type="number"
+                    icon={{ src: YearIcon, alt: 'Calendar icon' }}
+                    placeholder="Year of release"
+                    onChange={handleOnChange}
+                />
+            </SearchFiltersCont>
+            <SearchFiltersCont>
+                <CategoryTitle>Movies</CategoryTitle>
+                {/* TODO: Complete the "AccordionFilter" component and re-use it for all filter categories */}
+                <ExpandableFilter
+
+                />
+            </SearchFiltersCont>
+        </FiltersWrapper>
+    );
 }
 
 const FiltersWrapper = styled.div`
@@ -46,7 +64,7 @@ const SearchFiltersCont = styled.div`
   .search_bar_wrapper:first-child {
     margin-bottom: 15px;
   }
-  
+
   ${props => props.marginBottom && css`
     margin-bottom: 15px;
   `}

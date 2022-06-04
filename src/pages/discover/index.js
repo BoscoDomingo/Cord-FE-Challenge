@@ -52,6 +52,22 @@ export default class Discover extends React.Component {
     };
 
     // TODO: Update search results based on the keyword and year inputs
+    searchMovies(keyword, year) {
+        if (!keyword) {
+            // We're duplicating the input validation logic, but each function should pass
+            // unit tests independently, and you cannot be too safe ;)
+            return {};
+        }
+        fetcher.fetchMovies(keyword, year).then(movies => {
+            console.log(movies);
+            this.setState({
+                results: movies.results,
+                totalCount: movies.total_results,
+            });
+        });
+    };
+
+
 
     render() {
         const { genreOptions, languageOptions, ratingOptions, totalCount, results } = this.state;
@@ -71,16 +87,14 @@ export default class Discover extends React.Component {
                                 genres={genreOptions}
                                 ratings={ratingOptions}
                                 languages={languageOptions}
-                                searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
+                                onSearch={(keyword, year) => this.searchMovies(keyword, year)}
                             />
                         </MovieFilters>
                         <MovieResults>
-
                             <MovieList
                                 movies={results || []}
                                 genres={genreOptions || []}
                             />
-
                         </MovieResults>
                     </>
                 }
