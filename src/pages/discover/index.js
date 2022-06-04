@@ -59,27 +59,31 @@ export default class Discover extends React.Component {
         return (
             <DiscoverWrapper>
                 <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
-                <TotalCount>{totalCount} results</TotalCount>
-                <MovieFilters>
-                    <SearchFilters
-                        genres={genreOptions}
-                        ratings={ratingOptions}
-                        languages={languageOptions}
-                        searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
-                    />
-                </MovieFilters>
-                <MovieResults>
-                    {this.state.isLoading ?
-                        <>
-                            {/* This could be a proper loading screen with an animation*/}
-                            Loading...
-                        </> :
-                        <MovieList
-                            movies={results || []}
-                            genres={genreOptions || []}
-                        />
-                    }
-                </MovieResults>
+                {this.state.isLoading ?
+                    <>
+                        {/* This could be a proper loading screen with an animation*/}
+                        Loading...
+                    </> :
+                    <>
+                        <TotalCount>{totalCount} results</TotalCount>
+                        <MovieFilters>
+                            <SearchFilters
+                                genres={genreOptions}
+                                ratings={ratingOptions}
+                                languages={languageOptions}
+                                searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
+                            />
+                        </MovieFilters>
+                        <MovieResults>
+
+                            <MovieList
+                                movies={results || []}
+                                genres={genreOptions || []}
+                            />
+
+                        </MovieResults>
+                    </>
+                }
             </DiscoverWrapper>
         )
     }
