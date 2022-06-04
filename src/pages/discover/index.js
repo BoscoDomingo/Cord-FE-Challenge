@@ -30,16 +30,19 @@ export default class Discover extends React.Component {
                 { id: 'EN', name: 'English' },
                 { id: 'RU', name: 'Russian' },
                 { id: 'PO', name: 'Polish' }
-            ]
+            ],
+            isLoading: false,
         };
     }
 
-    // TODO: Preload and set the popular movies and movie genres when page loads
+    // TODO: Preload and set the popular movies and movie genres when page loads - DONE
     componentDidMount() {
+        this.setState({ isLoading: true });
         fetcher.fetchPopularMovies().then(res => {
             this.setState({
                 results: res.results,
-                totalCount: res.total_results
+                totalCount: res.total_results,
+                isLoading: false,
             })
         });
     };
@@ -62,10 +65,16 @@ export default class Discover extends React.Component {
                     />
                 </MovieFilters>
                 <MovieResults>
-                    <MovieList
-                        movies={results || []}
-                        genres={genreOptions || []}
-                    />
+                    {this.state.isLoading ?
+                        <>
+                            {/* This could be a proper loading screen with an animation*/}
+                            Loading...
+                        </> :
+                        <MovieList
+                            movies={results || []}
+                            genres={genreOptions || []}
+                        />
+                    }
                 </MovieResults>
             </DiscoverWrapper>
         )
