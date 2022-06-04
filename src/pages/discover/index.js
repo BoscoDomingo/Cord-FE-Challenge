@@ -10,7 +10,7 @@ import MovieList from "../../components/movielist";
 export default class Discover extends React.Component {
     constructor(props) {
         super(props);
-
+        // Using useState could be a possibility here
         this.state = {
             keyword: '',
             year: 0,
@@ -51,7 +51,7 @@ export default class Discover extends React.Component {
         });
     };
 
-    // TODO: Update search results based on the keyword and year inputs
+    // TODO: Update search results based on the keyword and year inputs - DONE
     searchMovies(keyword, year) {
         if (!keyword) {
             // We're duplicating the input validation logic, but each function should pass
@@ -59,7 +59,6 @@ export default class Discover extends React.Component {
             return {};
         }
         fetcher.fetchMovies(keyword, year).then(movies => {
-            console.log(movies);
             this.setState({
                 results: movies.results,
                 totalCount: movies.total_results,
