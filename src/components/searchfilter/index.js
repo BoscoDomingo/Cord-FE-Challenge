@@ -12,14 +12,14 @@ export default function SearchFilters({ genres, ratings, languages, onSearch }) 
     const [keyword, setKeyword] = React.useState('');
     const [year, setYear] = React.useState(0);
 
-    const handleOnChange = ((value) => {
-        // Not the cleanest solution, but better than repeating code in each onChange
+    const handleOnChange = (value => { //useEffect caused an infinite loop
+        // Better than repeating code in each onChange, but causes incorrect search
         if (typeof value === 'string') {
             setKeyword(value);
         } else if (typeof value === 'number') {
             setYear(value);
         }
-        onSearch(keyword, year); //useEffect caused an infinite loop
+        onSearch(keyword, year);
     });
 
     return (
