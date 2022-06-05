@@ -69,7 +69,7 @@ export default class Discover extends React.Component {
 
         return (
             <DiscoverWrapper>
-                <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on mobile devices via CSS media queries*/}
+                <MobilePageTitle>Discover</MobilePageTitle> {/*TO-DO: MobilePageTitle should become visible on mobile devices via CSS media queries*/}
                 {this.state.isLoading ?
                     <>
                         {/* This could be a proper loading screen with an animation*/}
