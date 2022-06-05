@@ -51,18 +51,14 @@ export default class Discover extends React.Component {
         });
     };
 
-    // TODO: Update search results based on the keyword and year inputs - DONE
-    searchMovies(keyword, year) {
-        if (!keyword) {
-            // We're duplicating the input validation logic, but each function should pass
-            // unit tests independently, and you cannot be too safe ;)
-            return {};
-        }
-        fetcher.fetchMovies(keyword, year).then(movies => {
-            this.setState({
-                results: movies.results,
-                totalCount: movies.total_results,
-            });
+    // TODO: Update search results based on the keyword and year inputs - DONE (kinda)
+    searchMovies = async (keyword, year) => {
+        // this.setState({ isLoading: true }); // Doesn't work correctly
+        let results = keyword ? await fetcher.fetchMovies(keyword, year) : await fetcher.fetchPopularMovies();
+        this.setState({
+            results: results.results,
+            totalCount: results.total_results,
+            isLoading: false,
         });
     };
 
