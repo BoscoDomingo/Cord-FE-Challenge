@@ -1,10 +1,17 @@
 # cord Coding Challenge (Front-end)
 
-### Introduction 
-Welcome! This coding challenge is designed to explore your React & SCSS Front-end skills. You will have to create a simple SPA based on the provided mockup and make a few API calls to a public web API.
+## Introduction
+Welcome! This coding challenge was designed to explore my React & SCSS Front-end skills. I had to create a simple SPA based on the provided mockup and make a few API calls to a public web API ([TMDB](https://www.themoviedb.org/)).
 
-### The challenge
-You have to complete the test and write any necessary code so that the discover page looks like this [mockup] designs. All the images/icons you need are already imported and you can find them under the `images` folder. 
+I took this challenge with nearly 0 React knowledge (just a basic course that went over the fundamentals), so I had to search several different documentation and Stack Overflow pages to find ways to solve the problems. I invested around 4-5 hours total in trying to solve as many problems as possible.
+
+In the end I managed to solve the fetching to API, showing it in the Discover page, searching by movie title and year (although not working 100% correctly, it loads the previous letter's search when you input a new one, due to changing `state` in a background thread would be my guess), the `AccordionFilters` and couldn't finish the `MovieItem` displays.
+
+
+Over the code you'll find comments of how I would do things or potential improvements that I **would not** otherwise add to a real codebase. These are meant to show my potential and current skills, as well as previous knowledge of SWE and Full-Stack Development.
+
+## The challenge
+You have to complete the test and write any necessary code so that the discover page looks like this [mockup] designs. All the images/icons you need are already imported and you can find them under the `images` folder.
 
 The discover page should enable the user to search for movies as keywords are typed into the search bar. Functionality for filtering does not need to be implemented, however the filter categories should still be expandable/collapsable upon clicking. On mobile devices, the navigation bar should slide in from left to right when the user clicks on the hamburger icon, and back when the user clicks on a close icon or outside the `SideBar`. In addition, you have to add all the responsive stylesheets for the app to run smoothly on mobile devices.
 
@@ -21,10 +28,10 @@ Packages & Technologies used in the repo:
 - `react-router-dom`
 - `styled-components`
 
-### Submission guide
+## Submission guide
 Once you are done, please share your test on github with tech@cord.co and email the link to the repo to our In-house recruiter, Monika at monika@cord.co
 
-### How we review
+## How we review
 - **Design**: Were you able to translate the mockup into a web application that works well on various browsers and devices? Does the output match the mockup? Are all the required interactions implemented? Is your web app accessible? This is the most important aspect. Weight: 50%
 - **Functionality**: Does the search function work? Do the results load instantly as the user types? If the API backend has rate limiting enforced, how do you implement the aforementioned while also taking rate limiting into account? Weight: 25%
 - **Code quality**: Is the code easy to understand, maintain and scale? Is the coding style consistent with the language's best practices? Do you demonstrate a good grasp of JavaScript, React and SCSS? Weight: 15%
@@ -33,7 +40,7 @@ Once you are done, please share your test on github with tech@cord.co and email 
 ### Bonus points
 - **Automated Tests** - Are there any automated tests?
 - **Documentation** - Is the README well written? Are the commit messages clear?
-- **Reporting** - React Profiler report with demonstrated knowledge of reading / reporting performance data 
+- **Reporting** - React Profiler report with demonstrated knowledge of reading / reporting performance data
 - **Production-readiness** - Is there proper error handling? Is the code ready to put into production? Code-Splitting?
 - **Future-readiness** - React Hooks? Web workers? PWA? Client-side caching?
 

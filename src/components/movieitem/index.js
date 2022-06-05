@@ -22,9 +22,9 @@ export default function MovieItem({ movie, genres }) {
             <RightCont>
                 <Title>{movie.title}</Title>
                 <Genres>{genreNames.join(" | ")}</Genres>
-                
+
                 {/* Rating */}
-                {/* Summary */}
+                <Summary>{movie.overview}</Summary>
                 {/* Release date */}
             </RightCont>
         </MovieItemWrapper>
@@ -50,8 +50,10 @@ const RightCont = styled.div`
 `
 
 const MoviePoster = styled.img`
-    width: 35%;
+    ${'' /* height: 90%;
+    width: auto; */}
     height: auto;
+    width: 50%
     object-fit: cover;
     `
 
@@ -65,7 +67,7 @@ const Genres = styled.h4`
 `;
 
 const Summary = styled.p`
-
+    font-weight: bold;
 `;
 
 const Rating = styled.div`
