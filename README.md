@@ -1,51 +1,78 @@
 # cord Coding Challenge (Front-end)
 
+## Table of Contents
+- [cord Coding Challenge (Front-end)](#cord-coding-challenge-front-end)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [How to run](#how-to-run)
+  - [Results](#results)
+    - [Mockups](#mockups)
+  - [Contribution guide](#contribution-guide)
+  - [Original challenge](#original-challenge)
+  - [Licence](#licence)
+
 ## Introduction
-Welcome! This coding challenge was designed to explore my React & SCSS Front-end skills. I had to create a simple SPA based on the provided mockup and make a few API calls to a public web API ([TMDB](https://www.themoviedb.org/)).
+Welcome! This coding challenge was designed by the great folks at [cord.co](https://cord.co "cord's website") (DM me for a private invite link 😉) to explore my React & SCSS Front-end skills.
 
-I took this challenge with nearly 0 React knowledge (just a basic course that went over the fundamentals), so I had to search several different documentation and Stack Overflow pages to find ways to solve the problems. I invested around 4-5 hours total in trying to solve as many problems as possible.
+I had to create a simple SPA based on the [provided mockups](#Mockups) and make a few API calls to a public web API ([TMDB](https://www.themoviedb.org/)).
 
-In the end I managed to solve the fetching to API, showing it in the Discover page, searching by movie title and year (although not working 100% correctly, it loads the previous letter's search when you input a new one, due to changing `state` in a background thread would be my guess), the `AccordionFilters` and the `MovieItem` displays.
+I took this challenge with nearly 0 React knowledge (just a basic course that went over the fundamentals), so I had to search several different documentation and Stack Overflow pages to find ways to solve the problems. I invested ~5 hours total in trying to solve as many problems as possible.
 
+In the end I managed to implement:
 
-Over the code you'll find comments of how I would do things or potential improvements that I **would not** otherwise add to a real codebase. These are meant to show my potential and current skills, as well as previous knowledge of SWE and Full-Stack Development.
+1. Fetching to API,
+2. Showing the results in the Discover page,
+3. Searching by movie title and year (although not working 100% correctly, it loads the previous letter's search when you input a new one, due to changing `state` in a background thread would be my guess),
+4. `AccordionFilters`,
+5. `MovieItem`
+6. `Checkbox`
 
-## The challenge
-You have to complete the test and write any necessary code so that the discover page looks like this [mockup] designs. All the images/icons you need are already imported and you can find them under the `images` folder.
+*Over the code you'll find comments of how I would do things or potential improvements that I **would not** otherwise add to a real codebase. These are meant to show my potential and current skills, as well as previous knowledge of SWE and Full-Stack Development.*
 
-The discover page should enable the user to search for movies as keywords are typed into the search bar. Functionality for filtering does not need to be implemented, however the filter categories should still be expandable/collapsable upon clicking. On mobile devices, the navigation bar should slide in from left to right when the user clicks on the hamburger icon, and back when the user clicks on a close icon or outside the `SideBar`. In addition, you have to add all the responsive stylesheets for the app to run smoothly on mobile devices.
+## How to run
 
-PS. Once you've completed the test follow all the `TODO` comments to make sure you have implemented all required functionality.
+In order to test the website locally, you need [Node.js](https://nodejs.org/en/ "Node.js' homepage") and the built-in [npm](https://www.npmjs.com/ "NPM's homepage") (I personally recommend `nvm` as the tool to manage node. There's a version for [Windows](https://github.com/coreybutler/nvm-windows "nvm for Windows") and for [Linux](https://github.com/nvm-sh/nvm "The nvm")).
 
-Movie data can be queried via [theMovieDB]:
-- Popular movies API doc: [popularMovies]
-- Movie Genres API doc: [movieGenres]
-- Search movies API doc: [searchMovies]
+With that, simply go to the folder where you've cloned the repo (`cd whatever/route/to/Cord-FE-Challenge`) and run:
 
-Packages & Technologies used in the repo:
-- `axios`
-- `sass`
-- `react-router-dom`
-- `styled-components`
+```
+npm install; npm start
+```
 
-## Submission guide
-Once you are done, please share your test on github with tech@cord.co and email the link to the repo to our In-house recruiter, Monika at monika@cord.co
+With that, all dependencies should be installed (you should see a *nice* `node_modules` folder appear) and the project will be opened on a tab on your default browser, pointing to `localhost:3000`. With that, you should be able to go to the Discover page where all the features are currently implemented!
 
-## How we review
-- **Design**: Were you able to translate the mockup into a web application that works well on various browsers and devices? Does the output match the mockup? Are all the required interactions implemented? Is your web app accessible? This is the most important aspect. Weight: 50%
-- **Functionality**: Does the search function work? Do the results load instantly as the user types? If the API backend has rate limiting enforced, how do you implement the aforementioned while also taking rate limiting into account? Weight: 25%
-- **Code quality**: Is the code easy to understand, maintain and scale? Is the coding style consistent with the language's best practices? Do you demonstrate a good grasp of JavaScript, React and SCSS? Weight: 15%
-- **Performance**: Does the UI render quickly with no performance issues? Have you ensured that API requests do not fire so often that they can brick browser performance? Weight: 10%
+## Results
 
-### Bonus points
-- **Automated Tests** - Are there any automated tests?
-- **Documentation** - Is the README well written? Are the commit messages clear?
-- **Reporting** - React Profiler report with demonstrated knowledge of reading / reporting performance data
-- **Production-readiness** - Is there proper error handling? Is the code ready to put into production? Code-Splitting?
-- **Future-readiness** - React Hooks? Web workers? PWA? Client-side caching?
+The final result is this one (keep in mind I'm using a higher resolution display):
 
-[mockup]: <https://cord-coding-challenges.s3-eu-west-1.amazonaws.com/frontend-test-mockups.zip>
-[theMovieDB]: <https://www.themoviedb.org/documentation/api>
-[popularMovies]: <https://developers.themoviedb.org/3/movies/get-popular-movies>
-[movieGenres]: <https://developers.themoviedb.org/3/genres/get-movie-list>
-[searchMovies]: <https://developers.themoviedb.org/3/search/search-movies>
+![Final result](frontend-test-mockups/Final%20result.png)
+
+### Mockups
+![Expected result](frontend-test-mockups/FE-test-mockup-annotaded.png)
+![Provided wireframe](frontend-test-mockups/Wireframe.png)
+
+## Contribution guide
+
+Feel free to add any contributions to the remaining *TO-DO*s or improving on the existing features.
+
+Ideally you'd fork this repo, open a PR and make it clear what is it you've changed, added or improved. There's no PR template at the time.
+
+Everything emanates from the `App.js` file, and goes from there. I would suggest using that as a starting point to get acquainted with the code.
+
+There's several things left to do, you can find them as comments in the code as well as in the original challenge below.
+
+- The main one is definitely fixing the search function.
+
+- Secondly (but not by far), testing, which I was nowhere near close to even starting and would be the most crucial aspect once the basics are done.
+
+- After that, mobile adaptation so the website is mroe accessible.
+
+- Finally, anything left or improvements one may want to add.
+
+## Original challenge
+
+You can find the original challenge text [here](Original%20README.md).
+
+## Licence
+
+For now, *Copyright Bosco Domingo, 2022*. You are free to use this software, redistribute it and modify it, but not use it for financial purposes. You must give credit to cord and me, and link to this original repo, as well as preserve this licence.
