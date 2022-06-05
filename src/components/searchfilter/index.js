@@ -72,4 +72,5 @@ const SearchFiltersCont = styled.div`
 
 const CategoryTitle = styled.h3`
   margin: 0 0 15px 0;
+  color: ${colors.fontColor};
 `

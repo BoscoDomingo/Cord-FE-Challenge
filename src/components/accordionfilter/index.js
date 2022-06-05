@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from 'styled-components';
 import Checkbox from "../checkbox";
 
+import * as colors from "../../colors";
+
 export default function AccordionFilter({ title, content }) {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +49,7 @@ const AccordionFilterButton = styled.button`
 const AccordionFilterTitle = styled.span`
     margin-left: 10px;
     font-size: 20px;
+    color: ${colors.fontColor};
 `
 const AccordionFilterContent = styled.div`
   ${({ isOpen }) =>
