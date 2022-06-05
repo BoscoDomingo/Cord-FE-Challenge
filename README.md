@@ -29,6 +29,8 @@ In the end I managed to implement:
 
 *Over the code you'll find comments of how I would do things or potential improvements that I **would not** otherwise add to a real codebase. These are meant to show my potential and current skills, as well as previous knowledge of SWE and Full-Stack Development.*
 
+*I also commited everything to main, when in real-life scenarios I would've created a branch for each feature and its subsequent PR*
+
 ## How to run
 
 In order to test the website locally, you need [Node.js](https://nodejs.org/en/ "Node.js' homepage") and the built-in [npm](https://www.npmjs.com/ "NPM's homepage") (I personally recommend `nvm` as the tool to manage node. There's a version for [Windows](https://github.com/coreybutler/nvm-windows "nvm for Windows") and for [Linux](https://github.com/nvm-sh/nvm "The nvm")).
