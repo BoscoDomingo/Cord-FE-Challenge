@@ -1,13 +1,10 @@
 import axios from 'axios';
 
-// TODO: All of your API requests should be in this file
+// TODO: All of your API requests should be in this file - DONE
 // See the README file for more information about the APIs you would need to use
 
-// const API_KEY = process.env.MOVIES_DB_API_KEY || "991724e209b5167debbf1d8adaf43bb9"; // This would be the way to do it in prod
-// const BASE_URL = process.env.MOVIES_DB_BASE_URL || "https://api.themoviedb.org/3";
-
-const API_KEY = "991724e209b5167debbf1d8adaf43bb9"; // I hardcoded them for simplicity
-const BASE_URL = "https://api.themoviedb.org/3";
+const API_KEY = process.env.REACT_APP_MOVIES_DB_API_KEY;
+const BASE_URL = process.env.REACT_APP_MOVIES_DB_BASE_URL || "https://api.themoviedb.org/3";
 
 export const fetchMovies = async (query, year) => {
     if (query === "") {

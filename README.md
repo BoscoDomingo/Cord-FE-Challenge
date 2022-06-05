@@ -7,7 +7,7 @@
   - [How to run](#how-to-run)
   - [Results](#results)
     - [Mockups](#mockups)
-  - [Contribution guide](#contribution-guide)
+  - [Contribution guide and next steps](#contribution-guide-and-next-steps)
   - [Original challenge](#original-challenge)
   - [Licence](#licence)
 
@@ -33,6 +33,14 @@ In the end I managed to implement:
 
 In order to test the website locally, you need [Node.js](https://nodejs.org/en/ "Node.js' homepage") and the built-in [npm](https://www.npmjs.com/ "NPM's homepage") (I personally recommend `nvm` as the tool to manage node. There's a version for [Windows](https://github.com/coreybutler/nvm-windows "nvm for Windows") and for [Linux](https://github.com/nvm-sh/nvm "The nvm")).
 
+You'll need to create a `.env` file in the root folder, and write the following in it:
+```
+REACT_APP_MOVIES_DB_API_KEY = "<Your API key from TMDB>"
+REACT_APP_MOVIES_DB_BASE_URL = "https://api.themoviedb.org/3"
+```
+
+Make sure to get that API Key or they calls to the DB will fail, thus not loading the movies correctly. [You can get it here](https://www.themoviedb.org/settings/api). Simply follow the instructions (requires you to create an account).
+
 With that, simply go to the folder where you've cloned the repo (`cd whatever/route/to/Cord-FE-Challenge`) and run:
 
 ```
@@ -51,7 +59,7 @@ The final result is this one (keep in mind I'm using a higher resolution display
 ![Expected result](frontend-test-mockups/FE-test-mockup-annotaded.png)
 ![Provided wireframe](frontend-test-mockups/Wireframe.png)
 
-## Contribution guide
+## Contribution guide and next steps
 
 Feel free to add any contributions to the remaining *TO-DO*s or improving on the existing features.
 
