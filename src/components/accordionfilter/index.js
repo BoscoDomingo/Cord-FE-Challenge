@@ -16,8 +16,7 @@ export default function AccordionFilter({ title, content }) {
                     </AccordionFilterButton>
                     <AccordionFilterContent isOpen={isOpen}>
                         {content.map((element) => {
-                            console.log(element)
-                            return <Checkbox id={element.id} name={element.name} checked={element.checked} label={element.name} onChange={() => {element.checked = !element.checked || false}} />
+                            return <Checkbox key={element.id} id={element.id} name={element.name} checked={element.checked} label={element.name} onChange={() => {element.checked = !element.checked || false}} />
                         })}
                     </AccordionFilterContent>
                 </AccordionFilterWrapper>
