@@ -5,27 +5,24 @@ import * as colors from "../../colors";
 
 export default function MovieItem({ movie, genres }) {
     const postersBaseURL = "https://image.tmdb.org/t/p/w500";
-    console.log(movie.genre_ids, genres);
 
     let genreNames = [];
     for (let id of movie.genre_ids) {
         genreNames.push(genres.find(genre => genre.id === id).name);
     }
 
-    console.log(genreNames)
     return (
-        // TODO: Complete the MovieItem component
+        // TODO: Complete the MovieItem component - DONE
         <MovieItemWrapper>
             <LeftCont>
                 <MoviePoster src={`${postersBaseURL}${movie.poster_path}`} alt={movie.title} />
             </LeftCont>
             <RightCont>
+                <Rating><RatingText>{movie.vote_average}</RatingText></Rating>
                 <Title>{movie.title}</Title>
                 <Genres>{genreNames.join(" | ")}</Genres>
-
-                {/* Rating */}
                 <Summary>{movie.overview}</Summary>
-                {/* Release date */}
+                <ReleaseDate>{movie.release_date}</ReleaseDate>
             </RightCont>
         </MovieItemWrapper>
     )
@@ -38,42 +35,53 @@ const MovieItemWrapper = styled.div`
   padding: 20px;
   margin: 15px 0;
   display: flex;
-`
+`;
 
 const LeftCont = styled.div`
   display: inline-block;
-`
+`;
 
 const RightCont = styled.div`
   display: inline-block;
   align-items: left;
-`
+  margin: 0 0 0 20px;
+`;
 
 const MoviePoster = styled.img`
-    ${'' /* height: 90%;
-    width: auto; */}
     height: auto;
-    width: 50%
+    width: 200px;
     object-fit: cover;
-    `
+`;
 
+const Rating = styled.div`
+    display: flex;
+    border-radius: 5px;
+    float: right;
+    align-items: center;
+    background-color: ${colors.primaryColor};
+    color: #ffffff;
+    padding: 5px 10px;
+`;
+
+const RatingText = styled.h3`
+    margin: 0 0;
+    align-text:center;
+`;
 const Title = styled.h2`
-  font-size: 1.4;
+    margin: 0 auto;
 `;
 
 const Genres = styled.h4`
-  font-size: 1;
   color: ${colors.primaryColor};
+  margin: 8px auto;
 `;
 
 const Summary = styled.p`
     font-weight: bold;
 `;
 
-const Rating = styled.div`
-  font-size: 1.4;
-  color: ${colors.primaryColor};
-`;
 const ReleaseDate = styled.p`
-  font-size: 1.4;
+  color: ${colors.primaryColor};
+  bottom: 5px;
+  position: absolute;
 `;

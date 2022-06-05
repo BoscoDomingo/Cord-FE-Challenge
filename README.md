@@ -5,7 +5,7 @@ Welcome! This coding challenge was designed to explore my React & SCSS Front-end
 
 I took this challenge with nearly 0 React knowledge (just a basic course that went over the fundamentals), so I had to search several different documentation and Stack Overflow pages to find ways to solve the problems. I invested around 4-5 hours total in trying to solve as many problems as possible.
 
-In the end I managed to solve the fetching to API, showing it in the Discover page, searching by movie title and year (although not working 100% correctly, it loads the previous letter's search when you input a new one, due to changing `state` in a background thread would be my guess), the `AccordionFilters` and couldn't finish the `MovieItem` displays.
+In the end I managed to solve the fetching to API, showing it in the Discover page, searching by movie title and year (although not working 100% correctly, it loads the previous letter's search when you input a new one, due to changing `state` in a background thread would be my guess), the `AccordionFilters` and the `MovieItem` displays.
 
 
 Over the code you'll find comments of how I would do things or potential improvements that I **would not** otherwise add to a real codebase. These are meant to show my potential and current skills, as well as previous knowledge of SWE and Full-Stack Development.
